@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Consultation extends Model
 {
     //use HasFactory;
@@ -29,4 +28,10 @@ class Consultation extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    // one to many
+    public function appointment()
+    {
+        return $this->hasMany('App\Models\Operational\Appointment', 'consultation_id');
+    }
 }

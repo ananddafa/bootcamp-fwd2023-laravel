@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class TypeUser extends Model
 {
     //use HasFactory;
@@ -29,4 +28,10 @@ class TypeUser extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    //one to many
+    public function detail_user()
+    {
+        return $this->hasMany('app\Models\ManagementAccess\DetailUser', 'type_user_id');
+    }
 }
