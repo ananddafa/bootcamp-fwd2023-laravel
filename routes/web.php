@@ -23,6 +23,7 @@ use App\Http\Controllers\Backsite\DashboardController;
 
 Route::resource('/', LandingController::class);
 
+//frontsite
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     // appointment page
