@@ -96,3 +96,5 @@ class DoctorController extends Controller
         abort(404);
     }
 }
+
+/* yayayay */
