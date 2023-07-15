@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-// use library here
-use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\Response;
-
-class DashboardController extends Controller
+class RoleController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -19,7 +16,6 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +23,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.dashboard.index');
+        return view('pages.backsite.management-access.role.index');
+
     }
 
     /**
@@ -37,7 +34,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return abort();
+        abort(404);
     }
 
     /**
@@ -48,7 +45,7 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        return abort();
+        abort(404);
     }
 
     /**
@@ -59,7 +56,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        return abort();
+        abort(404);
     }
 
     /**
@@ -70,7 +67,7 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        return abort();
+        abort(404);
     }
 
     /**
@@ -82,7 +79,7 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return abort();
+        abort(404);
     }
 
     /**
@@ -93,6 +90,6 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        return abort();
+        abort(404);
     }
 }

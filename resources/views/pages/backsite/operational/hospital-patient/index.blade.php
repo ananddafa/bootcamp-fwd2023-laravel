@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 {{-- set title --}}
-@section('title', 'Report Appointment')
+@section('title', 'Hospital Patient')
 
 @section('content')
-    Report Appointment
+    Hospital Patient
 @endsection
