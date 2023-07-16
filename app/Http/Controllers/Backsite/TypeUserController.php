@@ -8,6 +8,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
+// use everything here
+//use Gate;
+use Auth;
+
+// use model here
+use App\Models\MasterData\TypeUser;
+
+// thirdparty package
+
 class TypeUserController extends Controller
 {
     /**
@@ -26,7 +35,9 @@ class TypeUserController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.management-access.type-user.index');
+        $type_user = TypeUser::all();
+
+        return view('pages.backsite.management-access.type-user.index', compact('type-user'));
 
     }
 

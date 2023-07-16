@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-/* use Gate;
-use Auth; */
+//use Gate;
+use Auth;
 
 // use model here
-/* use App\Models\ManagementAccess\Permission;
+use App\Models\ManagementAccess\Permission;
 use App\Models\ManagementAccess\PermissionRole;
 use App\Models\ManagementAccess\Role;
-use App\Models\ManagementAccess\RoleUser; */
+use App\Models\ManagementAccess\RoleUser;
 
 class PermissionController extends Controller
 {
@@ -36,7 +36,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.management-access.permission.index');
+        $permission = Permission::orderBy('id', 'asc')->get();
+
+        return view('pages.backsite.management-access.permission.index', compact('permission'));
     }
 
     /**
