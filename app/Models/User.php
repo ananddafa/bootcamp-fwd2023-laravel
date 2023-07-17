@@ -69,6 +69,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    // many to many
+    public function role()
+    {
+        return $this->belongsToMany('App\Models\ManagementAccess\Role');
+    }
+    
     // one to one
     public function detail_user()
     {
@@ -81,6 +87,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
     }
     
+    public function doctor()
+    {
+        return $this->hasOne('App\Models\Operational\Doctor', 'user_id');
+    }
+
     public function appointment()
     {
         return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
