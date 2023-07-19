@@ -79,6 +79,15 @@
                         <div class="dropdown-divider"></div>
                             <a
                                 class="dropdown-item"
+                                href="{{ route('index') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="ft-power"></i> Frontsite
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            </a>
+                            <a
+                                class="dropdown-item"
                                 href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="ft-power"></i> Logout

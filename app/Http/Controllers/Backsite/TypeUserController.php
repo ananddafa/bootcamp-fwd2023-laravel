@@ -39,7 +39,7 @@ class TypeUserController extends Controller
 
         $type_user = TypeUser::all();
 
-        return view('pages.backsite.management-access.type-user.index', compact('type-user'));
+        return view('pages.backsite.management-access.type-user.index', compact('type_user'));
 
     }
 

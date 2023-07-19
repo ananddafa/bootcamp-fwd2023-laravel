@@ -15,9 +15,11 @@ class CreateDoctorTable extends Migration
     {
         Schema::create('doctor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('specialist_id')->nullable()->index
+            /* $table->foreignId('specialist_id')->nullable()->index
             ('fk_doctor_to_specialist');
-            $table->string('name')->unique();
+            $table->foreignId('user_id')->nullable()->index
+            ('fk_doctor_to_users'); */
+            $table->string('name');
             $table->string('fee');
             $table->longText('photo')->nullable();
             $table->timestamps();

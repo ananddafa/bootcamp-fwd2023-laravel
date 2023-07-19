@@ -39,9 +39,16 @@ Route::resource('/', LandingController::class);
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     // appointment page
+    Route::get('appointment/doctor/{id}', [AppointmentController::class, 'appointment'])->name('appointment.doctor');
     Route::resource('appointment', AppointmentController::class);
     
     //payment page
+    // grouping route custom from controller or route excluding controller resource
+    Route::controller(PaymentController::class)->group(function() {
+        Route::get('payment/success', 'success')->name('payment.success');
+        Route::get('payment/appointment/{id}', 'payment')->name('payment.appointment');
+        Route::post('payment/callback', 'callback')->name('payment.callback');
+    });
     Route::resource('payment', PaymentController::class);
 
     //success register

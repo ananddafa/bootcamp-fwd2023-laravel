@@ -29,7 +29,7 @@
           </h2>
           <div class="mt-12">
 
-            <!-- Form input -->
+            <!-- Form input -->              {{-- register --}}
             <form method="POST" action="{{ route('register') }}" class="grid gap-6">
                 
               {{-- token here --}}
@@ -71,7 +71,7 @@
                 <input
                     for="password_confirmation" type="password" id="password_confirmation" name="password_confirmation"
                     class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                    placeholder="Confirmatiom Password" value="{{ old('password') }}" required autofocus
+                    placeholder="Confirmatiom Password" required autofocus
                 />
                 {{-- add cek error --}}
                 @if ($errors->has('password'))

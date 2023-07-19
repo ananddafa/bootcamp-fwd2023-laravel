@@ -13,7 +13,7 @@ use App\Http\Requests\Specialist\StoreSpecialistRequest;
 use App\Http\Requests\Specialist\UpdateSpecialistRequest;
 
 // use everything here
-//use Gate;
+use Gate;
 use Auth;
 
 // use model here
@@ -46,16 +46,16 @@ class ReportTransactionController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('appointment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('transaction_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $type_user_condition = Auth::user()->detail_user->type_user_id;
 
         if($type_user_condition == 1){
             // for admin
-            $appointment = Appointment::orderBy('created_at', 'desc')->get();
+            $transaction = Transaction::orderBy('created_at', 'desc')->get();
         }else{
             // other admin for doctor & patient ( task for everyone here )
-            $appointment = Appointment::orderBy('created_at', 'desc')->get();
+            $transaction = Transaction::orderBy('created_at', 'desc')->get();
         }
 
         return view('pages.backsite.operational.transaction.index', compact('transaction'));

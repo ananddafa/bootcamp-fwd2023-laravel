@@ -52,7 +52,7 @@ class UserController extends Controller
         $type_user = TypeUser::orderBy('name', 'asc')->get();
         $roles = Role::all()->pluck('title', 'id');
 
-        return view('pages.backsite.management-access.user.index', compact('user', 'roles', 'type-user'));
+        return view('pages.backsite.management-access.user.index', compact('user', 'roles', 'type_user'));
 
     }
 

@@ -26,6 +26,17 @@ class CreateTransactionTable extends Migration
             $table->string('total')->nullable();
             $table->timestamps();
             $table->softDeletes();
+           /*  $table->id();
+            $table->string('transaction_code');
+            $table->string('fee_doctor');
+            $table->string('fee_specialist');
+            $table->string('fee_hospital');
+            $table->string('sub_total');
+            $table->string('vat');
+            $table->string('total');
+            $table->enum('status', [1,2]);
+            $table->timestamps();
+            $table->softDeletes(); */
         });
     }
 

@@ -40,7 +40,7 @@ class ConfigPaymentController extends Controller
 
         $config_payment = ConfigPayment::all();
 
-        return view('pages.backsite.master-data.config-payment.index', compact('config-payment'));
+        return view('pages.backsite.master-data.config-payment.index', compact('config_payment'));
 
     }
 
@@ -110,7 +110,7 @@ class ConfigPaymentController extends Controller
         $config_payment->update($data);
 
         alert()->success('Success Message', 'Successfully updated config payment');
-        return redirect()->route('backsite.config_payment.index');
+        return redirect()->route('backsite.config-payment.index');
     }
 
     /**

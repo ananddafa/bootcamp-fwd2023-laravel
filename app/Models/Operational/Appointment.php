@@ -38,7 +38,7 @@ class Appointment extends Model
     //one to many
     public function transaction()
     {
-        return $this->hasOne('App\Models\Operational\Transaction', 'appointment_id');
+        return $this->hasMany('App\Models\Operational\Transaction', 'appointment_id');
     }
 
     public function doctor()

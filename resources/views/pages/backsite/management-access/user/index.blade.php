@@ -207,7 +207,7 @@
                                                                 </td>
 
                                                                 <td class="text-center">
-                                                                    @can('user_show' || 'user_edit' || 'user_delete')
+                                                                    {{-- @can('user_show' || 'user_edit' || 'user_delete') --}}
 
                                                                     <div class="btn-group mr-1 mb-1">
                                                                         <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
@@ -237,7 +237,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    @endcan
+                                                                    {{-- @endcan --}}
                                                                 </td>
 
                                                             </tr>

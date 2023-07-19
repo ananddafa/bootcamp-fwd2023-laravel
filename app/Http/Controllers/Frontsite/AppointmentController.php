@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontsite;
 use App\Http\Controllers\Controller;
 
 // use library here
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,7 +17,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Operational\Doctor;
 use App\Models\Operational\Appointment;
-///use App\Models\MasterData\Specialist;
+use App\Models\MasterData\Specialist;
 use App\Models\MasterData\Consultation;
 
 // thirdparty package
@@ -61,7 +61,19 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        return abort(404);
+        $data = $request->all();
+
+        $appointment = new Appointment;
+        $appointment->doctor_id = $data['doctor_id'];
+        $appointment->user_id = Auth::user()->id;
+        $appointment->consultation_id = $data['consultation_id'];
+        $appointment->level = $data['level_id'];
+        $appointment->date = $data['date'];
+        $appointment->time = $data['time'];
+        $appointment->status = 2; // set to waiting payment
+        $appointment->save();
+
+        return redirect()->route('payment.appointment', $appointment->id);
     }
 
     /**
@@ -107,5 +119,14 @@ class AppointmentController extends Controller
     public function destroy($id)
     {
         return abort(404);
+    }
+
+    //custom
+    public function appointment($id)
+    {
+        $doctor = Doctor::where('id', $id)->first();
+        $consultation = Consultation::orderBy('name', 'asc')->get();
+
+        return view('pages.frontsite.appointment.index', compact('doctor', 'consultation'));
     }
 }
